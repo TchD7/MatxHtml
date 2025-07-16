@@ -5,68 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matx - Maintenance Industrielle Simplifiée</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js" defer></script>
-  <style>
-    body {
-      background-color: #0a0f16;
-      color: #e0e6f1;
-      font-family: 'Inter', sans-serif;
-    }
-    .btn-gradient {
-      background-image: linear-gradient(to right, #00c6ff, #0072ff);
-    }
-  </style>
 </head>
 <body>
 
   <!-- Hero Section -->
-  <section class="py-24 text-center relative overflow-hidden">
+  <section class="min-h-screen flex items-center relative overflow-hidden bg-transparent py-0">
     <div class="absolute inset-0 z-0">
       <div class="w-full h-full bg-gradient-to-r from-[#001F3F] to-[#0072ff] opacity-10"></div>
     </div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4">
-      <h1 class="text-5xl font-bold mb-6">Optimisez la maintenance de vos usines avec <span class="text-cyan-400">Matx</span></h1>
-      <p class="text-xl text-gray-300 mb-8">Une plateforme SaaS mobile et puissante pour gérer vos interventions, techniciens et pièces détachées.</p>
-      <a href="#" class="btn-gradient px-6 py-3 rounded-md text-lg font-semibold text-white hover:opacity-90 transition">Demander une démo</a>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center w-full">
+      <!-- Texte à gauche -->
+      <div class="md:w-1/2 w-full text-center md:text-left flex flex-col justify-center" data-sr-id="hero-text">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Optimisez la maintenance de vos usines avec <span class="text-cyan-400">Matx</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-6">
+          Une plateforme SaaS mobile et puissante pour gérer vos interventions, techniciens et pièces détachées.
+        </p>
+        <a href="#" class="btn-gradient px-4 py-2 rounded-md text-lg font-semibold text-white hover:opacity-90 transition mb-6">
+          Demander une démo
+        </a>
+        
+      </div>
+      <!-- Image à droite -->
+      <div class="md:w-1/2 w-full flex justify-center items-center relative" data-sr-id="hero-img">
+        <div class="relative">
+          <img id="hero-img"
+               src="a-split-screen-website-mockup-showcasing_LmFaa1fuSPagoSumMPTyDg_F0HSuvr-QkqxmnwiXO5Y6A.jpeg"
+               alt="Mockup Matx"
+               class="rounded-xl shadow-2xl w-full max-w-md object-cover transform -rotate-15"
+               style="filter: brightness(0.5); box-shadow: 0 0 80px 30px #0a0f16, 0 8px 32px #000; transition: transform 1.2s cubic-bezier(.68,-0.55,.27,1.55), filter 1.2s cubic-bezier(.68,-0.55,.27,1.55);" />
+          <div class="absolute inset-0 rounded-xl" style="background: linear-gradient(120deg, #0a0f16cc 60%, transparent 100%);"></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Problèmes -->
-  <section class="py-20 bg-[#0d121b] text-center">
+  <section class="min-h-screen flex items-center justify-center bg-[#0d121b] text-center">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-6">Marre des pannes non suivies et du papier ?</h2>
-      <p class="text-gray-400">Matx centralise toutes vos opérations de maintenance, en temps réel, avec une traçabilité totale.</p>
+      <h2 class="text-3xl font-bold mb-3">Marre des pannes non suivies et du papier ?</h2>
+      <p class="text-gray-400 text-lg mb-2">
+        Matx centralise toutes vos opérations de maintenance, en temps réel, avec une traçabilité totale.
+      </p>
     </div>
   </section>
 
   <!-- Fonctionnalités -->
-  <section class="py-20">
+  <section class="py-4">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">Fonctionnalités clés</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-[#1a1f29] p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="1">
-          <h3 class="text-xl font-semibold mb-2 text-white">📋 Gestion des tickets</h3>
+      <h2 class="text-3xl font-bold text-center mb-4">Fonctionnalités clés</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-[#1a1f29] p-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="1">
+          <h3 class="text-xl font-semibold mb-1 text-white">📋 Gestion des tickets</h3>
           <p class="text-gray-400">Créez, assignez et suivez vos interventions avec un workflow structuré.</p>
         </div>
-        <div class="bg-[#1a1f29] p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="2">
-          <h3 class="text-xl font-semibold mb-2 text-white">📲 Application mobile</h3>
+        <div class="bg-[#1a1f29] p-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="2">
+          <h3 class="text-xl font-semibold mb-1 text-white">📲 Application mobile</h3>
           <p class="text-gray-400">Les techniciens reçoivent les tickets sur mobile, ajoutent photos, signatures et compte-rendu.</p>
         </div>
-        <div class="bg-[#1a1f29] p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="3">
-          <h3 class="text-xl font-semibold mb-2 text-white">🔩 Stock & pièces détachées</h3>
+        <div class="bg-[#1a1f29] p-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="3">
+          <h3 class="text-xl font-semibold mb-1 text-white">🔩 Stock & pièces détachées</h3>
           <p class="text-gray-400">Suivi en temps réel des pièces utilisées lors des interventions.</p>
         </div>
-        <div class="bg-[#1a1f29] p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="4">
-          <h3 class="text-xl font-semibold mb-2 text-white">🧍‍♂️ Rôles métiers</h3>
+        <div class="bg-[#1a1f29] p-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="4">
+          <h3 class="text-xl font-semibold mb-1 text-white">🧍‍♂️ Rôles métiers</h3>
           <p class="text-gray-400">Chaque acteur (opérateur, technicien, superviseur) a son espace dédié.</p>
         </div>
-        <div class="bg-[#1a1f29] p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="5">
-          <h3 class="text-xl font-semibold mb-2 text-white">📈 Tableaux de bord</h3>
+        <div class="bg-[#1a1f29] p-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="5">
+          <h3 class="text-xl font-semibold mb-1 text-white">📈 Tableaux de bord</h3>
           <p class="text-gray-400">Suivez vos indicateurs clés : temps de réparation, fréquence des pannes, etc.</p>
         </div>
-        <div class="bg-[#1a1f29] p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="6">
-          <h3 class="text-xl font-semibold mb-2 text-white">🤖 IA intégrable</h3>
+        <div class="bg-[#1a1f29] p-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all" data-sr-id="6">
+          <h3 class="text-xl font-semibold mb-1 text-white">🤖 IA intégrable</h3>
           <p class="text-gray-400">À venir : suggestions automatiques de pièces, analyse de comptes-rendus.</p>
         </div>
       </div>
@@ -74,30 +88,18 @@
   </section>
 
   <!-- CTA final -->
-  <section class="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] py-20 text-center text-white">
+  <section class="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] py-4 text-center text-white">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Prêt à moderniser votre maintenance ?</h2>
-      <p class="mb-6">Testez Matx dès aujourd’hui ou planifiez une démonstration personnalisée.</p>
-      <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition">Demander une démo</a>
+      <h2 class="text-3xl font-bold mb-2">Prêt à moderniser votre maintenance ?</h2>
+      <p class="mb-2">Testez Matx dès aujourd’hui ou planifiez une démonstration personnalisée.</p>
+      <a href="#" class="bg-white text-blue-600 px-4 py-2 rounded-md text-lg font-semibold hover:bg-gray-100 transition">Demander une démo</a>
     </div>
   </section>
 
-  <footer class="py-8 text-center text-sm text-gray-500 bg-[#0a0f16]">
+  <footer class="py-3 text-center text-sm text-gray-500 bg-[#0a0f16]">
     © 2025 Matx. Tous droits réservés.
   </footer>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      ScrollReveal().reveal('[data-sr-id]', {
-        duration: 800,
-        distance: '30px',
-        easing: 'ease-in-out',
-        origin: 'bottom',
-        reset: false,
-        interval: 100
-      });
-    });
-  </script>
-
+  <script src="main.js"></script>
 </body>
 </html>
