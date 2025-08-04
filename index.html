@@ -8,54 +8,103 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js" defer></script>
+  <style>
+    /* Animation texte défilant */
+    @keyframes marquee {
+      0% { transform: translateX(100%);}
+      100% { transform: translateX(-100%);}
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 18s linear infinite;
+    }
+    /* Ajoute dans style.css */
+    .carousel-img {
+      transition: transform 1.2s cubic-bezier(.68,-0.55,.27,1.55), opacity 1.2s;
+      left: 0;
+      width: 90%;
+      top: 40px;
+      opacity: 0.8;
+    }
+    .carousel-img.active {
+      z-index: 2;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .carousel-img.next {
+      z-index: 1;
+      opacity: 0.8;
+      transform: translateX(10%);
+    }
+    .carousel-img.prev {
+      z-index: 1;
+      opacity: 0.8;
+      transform: translateX(-10%);
+    }
+  </style>
 </head>
 <body>
 
   <!-- Hero Section -->
-  <section class="min-h-screen flex items-center relative overflow-hidden bg-transparent py-0">
-    <div class="absolute inset-0 z-0">
-      <div class="w-full h-full bg-gradient-to-r from-[#001F3F] to-[#0072ff] opacity-10"></div>
+<section class="min-h-screen flex items-center relative overflow-hidden bg-transparent py-8">
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full bg-gradient-to-r from-[#001F3F] to-[#0072ff] opacity-10"></div>
+  </div>
+  <div class="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center w-full">
+    <!-- Texte à gauche -->
+    <div class="md:w-1/2 w-full text-center md:text-left flex flex-col justify-center rounded-xl p-8 backdrop-blur-md bg-white bg-opacity-0" data-sr-id="hero-text">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Optimisez la maintenance de vos usines avec <span class="text-cyan-400">Matx</span>
+      </h1>
+      <p class="text-xl text-gray-300 mb-6">
+        Une plateforme SaaS mobile et puissante pour gérer vos interventions, techniciens et pièces détachées.
+      </p>
+      <a href="https://wa.me/22899447328" target="_blank" rel="noopener"
+         class="bg-blue-600 text-white px-4 py-2 rounded-md text-lg font-semibold hover:bg-blue-700 transition">
+        Demander une démo
+      </a>
     </div>
-    <div class="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center w-full">
-      <!-- Texte à gauche -->
-      <div class="md:w-1/2 w-full text-center md:text-left flex flex-col justify-center" data-sr-id="hero-text">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          Optimisez la maintenance de vos usines avec <span class="text-cyan-400">Matx</span>
-        </h1>
-        <p class="text-xl text-gray-300 mb-6">
-          Une plateforme SaaS mobile et puissante pour gérer vos interventions, techniciens et pièces détachées.
-        </p>
-        <a href="#" class="btn-gradient px-4 py-2 rounded-md text-lg font-semibold text-white hover:opacity-90 transition mb-6">
-          Demander une démo
-        </a>
-        
-      </div>
-      <!-- Image à droite -->
-      <div class="md:w-1/2 w-full flex justify-center items-center relative" data-sr-id="hero-img">
-        <div class="relative">
+    <!-- Image à droite : carousel amélioré -->
+    <div class="md:w-1/2 w-full flex justify-center items-center relative" data-sr-id="hero-img">
+      <div class="relative overflow-hidden" style="width:100%;max-width:600px;height:400px;">
+        <div id="hero-carousel" class="w-full h-full relative">
           <img id="hero-img"
                src="a-split-screen-website-mockup-showcasing_LmFaa1fuSPagoSumMPTyDg_F0HSuvr-QkqxmnwiXO5Y6A.jpeg"
                alt="Mockup Matx"
-               class="rounded-xl shadow-2xl w-full max-w-md object-cover transform -rotate-15"
-               style="filter: brightness(0.5); box-shadow: 0 0 80px 30px #0a0f16, 0 8px 32px #000; transition: transform 1.2s cubic-bezier(.68,-0.55,.27,1.55), filter 1.2s cubic-bezier(.68,-0.55,.27,1.55);" />
-          <div class="absolute inset-0 rounded-xl" style="background: linear-gradient(120deg, #0a0f16cc 60%, transparent 100%);"></div>
+               class="carousel-img rounded-xl shadow-2xl w-full h-full object-cover absolute top-0 left-0"
+               style="filter: brightness(0.7) contrast(1.1); z-index:2;" />
+          <img id="hero-img-2"
+               src="Copilot_20250804_031748.png"
+               alt="Copilot"
+               class="carousel-img rounded-xl shadow-2xl w-full h-full object-cover absolute top-0 left-0"
+               style="filter: brightness(0.7) contrast(1.1); z-index:1;" />
         </div>
+        <div class="absolute inset-0 rounded-xl hero-gradient" style="background: linear-gradient(120deg, #0a0f16cc 60%, transparent 100%);"></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Problèmes -->
-  <section class="min-h-screen flex items-center justify-center bg-[#0d121b] text-center">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-3">Marre des pannes non suivies et du papier ?</h2>
-      <p class="text-gray-400 text-lg mb-2">
+  <!-- Header Problèmes avec texte défilant -->
+<header class="w-full bg-gradient-to-r from-[#001F3F] to-[#0072ff] py-8">
+  <div class="overflow-hidden">
+    <div class="whitespace-nowrap text-white text-lg font-semibold px-4">
+      <!-- Texte retiré -->
+    </div>
+  </div>
+</header>
+
+  <!-- Problème Actuel -->
+  <section class="py-8 bg-[#0d121b] text-center">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col items-center justify-center">
+      <h2 class="text-3xl font-bold mb-2">Marre des pannes non suivies et du papier ?</h2>
+      <p class="text-gray-400 text-lg mb-1">
         Matx centralise toutes vos opérations de maintenance, en temps réel, avec une traçabilité totale.
       </p>
     </div>
   </section>
-
   <!-- Fonctionnalités -->
-  <section class="py-4">
+  <section class="py-8">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-4">Fonctionnalités clés</h2>
       <div class="grid md:grid-cols-3 gap-4">
@@ -88,18 +137,24 @@
   </section>
 
   <!-- CTA final -->
-  <section class="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] py-4 text-center text-white">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-2">Prêt à moderniser votre maintenance ?</h2>
-      <p class="mb-2">Testez Matx dès aujourd’hui ou planifiez une démonstration personnalisée.</p>
-      <a href="#" class="bg-white text-blue-600 px-4 py-2 rounded-md text-lg font-semibold hover:bg-gray-100 transition">Demander une démo</a>
-    </div>
-  </section>
+  <section class="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] py-8 text-center text-white relative overflow-hidden">
+  <div class="relative z-10 max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-2">Prêt à moderniser votre maintenance ?</h2>
+    <p class="mb-2">Testez Matx dès aujourd’hui ou planifiez une démonstration personnalisée.</p>
+    <a href="https://wa.me/22899447328" target="_blank" rel="noopener"
+       class="bg-blue-600 text-white px-4 py-2 rounded-md text-lg font-semibold hover:bg-blue-700 transition">
+      Demander une démo
+    </a>
+  </div>
+</section>
 
-  <footer class="py-3 text-center text-sm text-gray-500 bg-[#0a0f16]">
+  <footer class="py-8 text-center text-sm text-gray-500 bg-[#0a0f16]">
     © 2025 Matx. Tous droits réservés.
   </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+ 
   <script src="main.js"></script>
 </body>
 </html>
